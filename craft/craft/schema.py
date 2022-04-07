@@ -1,16 +1,17 @@
 import graphene
-import graphql_jwt
+# import graphql_jwt
+from plugin import mutations
 
-import plugin.schema
+import plugin.schema as schema
 
-class Query(plugin.schema.Query, graphene.ObjectType):
+class Query(schema.Query, graphene.ObjectType):
     pass
 
 
-class Mutation(plugin.schema.Mutation, graphene.ObjectType):
-    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
-    verify_token = graphql_jwt.Verify.Field()
-    refresh_token = graphql_jwt.Refresh.Field()
+class Mutation(schema.Mutation, graphene.ObjectType):
+    token_auth = mutations.ObtainJSONWebToken.Field()
+    verify_token = mutations.Verify.Field()
+    refresh_token = mutations.Refresh.Field()
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
