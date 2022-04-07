@@ -36,10 +36,9 @@ def token_auth(f):
         # 주어진 json webtoken에 해당하는 email 값을 찾아 "이미 {email}로 로그인 하였습니다."라는 텍스트
         # 를 반환
         if info.context.user.is_authenticated:
-            if str(info.context.user) != email:
-                raise exceptions.JSONWebTokenError(
-                    _(f"이미 {info.context.user}로 로그인 하셨습니다.")
-                )
+            raise exceptions.JSONWebTokenError(
+                _(f"이미 {info.context.user}로 로그인 하셨습니다.")
+            )
 
         user = authenticate(
             request=info.context,
