@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'craft.schema.schema',
 }
+
+AUTH_USER_MODEL = "users.CustomUser"
