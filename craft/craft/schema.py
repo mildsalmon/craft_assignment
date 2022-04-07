@@ -1,8 +1,7 @@
 import graphene
 # import graphql_jwt
-from plugin import mutations
+from plugin import mutations, schema
 
-import plugin.schema as schema
 
 class Query(schema.Query, graphene.ObjectType):
     pass
