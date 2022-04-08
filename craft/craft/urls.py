@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
+import health_check
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # csrf는 해킹 등의 올바르지 않은 방법으로 데이터가 전송되는 문제를 방지하기 위해 사용한다.
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path('ht/', include('health_check.urls')),
 ]
