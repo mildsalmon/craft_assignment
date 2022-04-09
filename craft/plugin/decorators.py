@@ -10,6 +10,11 @@ from graphql_jwt.refresh_token.shortcuts import refresh_token_lazy
 from graphql_jwt.settings import jwt_settings
 from graphql_jwt.shortcuts import get_token
 
+import logging
+
+logger = logging.getLogger('query')
+
+
 __all__ = [
     'token_auth',
     'setup_jwt_cookie',
@@ -35,10 +40,14 @@ def token_auth(f):
         # 만약 authorization header에 json webtoken이 포함된 경우 경우
         # 주어진 json webtoken에 해당하는 email 값을 찾아 "이미 {email}로 로그인 하였습니다."라는 텍스트
         # 를 반환
-        if info.context.user.is_authenticated:
-            raise exceptions.JSONWebTokenError(
-                _(f"이미 {info.context.user}로 로그인 하셨습니다.")
-            )
+        try:
+            if info.context.user.is_authenticated:
+                raise exceptions.JSONWebTokenError(
+                    _(f"이미 {info.context.user}로 로그인 하셨습니다.")
+                )
+        except Exception as e:
+            logger.warning(e)
+            raise
 
         user = authenticate(
             request=info.context,
@@ -46,9 +55,13 @@ def token_auth(f):
             password=password,
             skip_jwt_backend=True)
 
-        if user is None:
-            raise exceptions.JSONWebTokenError(
-                _('Please, enter valid credentials'))
+        try:
+            if user is None:
+                raise exceptions.JSONWebTokenError(
+                    _('Please, enter valid credentials'))
+        except Exception as e:
+            logger.warning(e)
+            raise
 
         if hasattr(info.context, 'user'):
             info.context.user = user
