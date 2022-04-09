@@ -3,6 +3,10 @@ from django.contrib.auth import get_user_model
 import graphene
 from graphene_django import DjangoObjectType
 
+import logging
+
+logger = logging.getLogger('query')
+
 
 class UserType(DjangoObjectType):
     class Meta:
@@ -37,8 +41,12 @@ class Query(graphene.ObjectType):
     def resolve_me(self, info):
         user = info.context.user
 
-        if user.is_anonymous:
-            raise Exception("Not logged in!")
+        try:
+            if user.is_anonymous:
+                raise Exception("Not logged in!")
+        except Exception as e:
+            logger.warning(e)
+            raise
 
         return user
 
