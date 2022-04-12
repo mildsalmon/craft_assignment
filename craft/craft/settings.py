@@ -24,7 +24,7 @@ SECRET_KEY = 'or4)4&hae@cqj9cn4b#o59_h9@a(!-pzh+z2uw53ri)dmt8s9='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['13.125.229.249', 'mildsalmon.tk']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'health_check.cache',
     'health_check.storage',
     'health_check.contrib.migrations',
+    'sslserver',
 ]
 
 MIDDLEWARE = [
