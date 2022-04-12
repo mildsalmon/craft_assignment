@@ -47,3 +47,7 @@ storage는 파일 하나를 만들고 문장을 입력하여 여분의 공간이
 
 migration은 미해결된 migrations이 있는지를 확인한다.
 
+
+# 완성
+
+![](/img/7.png)
