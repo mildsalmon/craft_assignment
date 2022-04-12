@@ -19,7 +19,9 @@
 
 # 구현
 
-파이썬에서 기본으로 제공되는 logging 라이브러리르 사용하였다.
+파이썬에서 기본으로 제공되는 logging 라이브러리를 사용하였다.
+
+Mutation과 Query를 호출시 에러가 발생할 때만 log가 기록되도록 설정하였다.
 
 ## formatters
 
@@ -37,3 +39,8 @@ formatter를 통해 출력할 log의 format을 지정한다.
 ## loggers
 
 query logger를 만들어서 query를 수행하는 중 Exception이 발생하는 지점에 적용하였다.
+
+
+# 완성
+
+![](/img/8.png)
