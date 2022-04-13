@@ -1,5 +1,13 @@
 # craft_assignment
 
+## Demo URL
+
+[Craft assignment - mildsalmon.tk](https://mildsalmon.tk/)
+
+시연 서버라서 DEBUG=True 상태를 수정하지 않았습니다.
+
+서버는 AWS의 EC2에서 동작하고 있습니다.
+
 ## PART 1. SIMPLE BACKEND AUTH SERVER
 
 > REST가 아닌 GraphQL을 사용하여야 함.
