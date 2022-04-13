@@ -20,6 +20,20 @@
 ![](/img/4.png)
 
 
+## PART2. AUGMENTED BACKEND AUTH SERVER
+
+### a. Logging
+
+[PART2. Logging](https://github.com/mildsalmon/craft_assignment/blob/main/craft/PART%202/Logging/readme.md)
+
+### b. Health Checks
+
+[PART2. Health Checks](https://github.com/mildsalmon/craft_assignment/blob/main/craft/PART%202/Health%20Checks/readme.md)
+
+### c. TLS
+
+[PART2. Logging TLS](https://github.com/mildsalmon/craft_assignment/blob/main/craft/PART%202/TLS/readme.md)
+
 # python version
 
 python 3.8
@@ -31,7 +45,7 @@ graphene==2.0.1
 graphene-django==2.0.0  
 django-filter==1.1.0  
 django-graphql-jwt==0.2.1  
-PyJWT==1.7.0  
-django-health-check==3.16.5
-django-sslserver==0.22
-gunicorn==20.1.0
+PyJWT==1.7.0   
+django-health-check==3.16.5  
+django-sslserver==0.22  
+gunicorn==20.1.0  
